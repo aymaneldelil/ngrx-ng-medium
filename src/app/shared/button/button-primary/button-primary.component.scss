@@ -1,0 +1,29 @@
+@use '../../../style/color' as colors;
+@use '../../../style/variables' as variables;
+@use '../../../style/mixins' as mixins;
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+.lite,
+.dark,
+.danger {
+    @include mixins.border-radius(5px);
+    border: none;
+}
+
+.lite {
+    background-color: colors.$primary;
+    color: darken(colors.$primary, 40)
+}
+
+.dark {
+
+    background-color:  darken(colors.$primary, 40);
+    color: colors.$primary; 
+}
+
+.danger {
+
+    background-color: colors.$danger;
+    color: darken(colors.$danger, 40)
+}

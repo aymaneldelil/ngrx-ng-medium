@@ -19,9 +19,18 @@ export class SignupComponent implements OnInit {
   //-------------------------------------------------------------------------------------------------------------------------------------------
   private signupForm() {
     this.signUp_fg = this._fb.group({
-      userName_fc: [null, Validators.required],
-      userEmail_fc: [null, Validators.required],
+      userName_fc: [null, [Validators.required  , Validators.minLength(6)] ] ,
+      userEmail_fc: [null, [Validators.required , Validators.pattern(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
       userPass_fc: [null, Validators.required],
     });
+  }
+
+  formSubmit(){
+    console.log(this.signUp_fg);
+    
+  }
+  testfc(){
+    console.log(this.signUp_fg.get('userName_fc')?.errors);
+
   }
 }
