@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { registerAction } from '../state/aut-action';
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -10,12 +12,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   public signUp_fg!: FormGroup;
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder ,
+    private _store:Store) {}
   //-------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.signupForm();
   }
-
   //-------------------------------------------------------------------------------------------------------------------------------------------
   private signupForm() {
     this.signUp_fg = this._fb.group({
@@ -24,13 +26,14 @@ export class SignupComponent implements OnInit {
       userPass_fc: [null, Validators.required],
     });
   }
-
+  //-------------------------------------------------------------------------------------------------------------------------------------------
   formSubmit(){
     console.log(this.signUp_fg);
+    this._store.dispatch(registerAction(this.signUp_fg.value))
     
   }
-  testfc(){
-    console.log(this.signUp_fg.get('userName_fc')?.errors);
+  // testfc(){
+  //   console.log(this.signUp_fg.get('userName_fc')?.errors);
 
-  }
+  // }
 }
