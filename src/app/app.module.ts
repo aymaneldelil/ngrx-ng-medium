@@ -1,14 +1,16 @@
 import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CounterModule } from './counter/counter.module';
 import { StoreModule } from '@ngrx/store'
-import { counterReducer } from './counter/state/counter.reducer';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HNavbarModule } from './feature/h-navbar/h-navbar.module';
+
+import { CoreModule } from './core/core.module';
+import { FooterModule } from './feature/footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CounterModule,
-    StoreModule.forRoot({counter: counterReducer}),
+    HNavbarModule,
+    FooterModule,
+    CoreModule,
+    // StoreModule.forRoot({counter: counterReducer}),
     StoreDevtoolsModule.instrument({
       // maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

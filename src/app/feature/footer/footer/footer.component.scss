@@ -1,0 +1,29 @@
+@use '../../../style/color' as colors;
+@use '../../../style/mixins' as mixins;
+@use '../../../style/variables' as variables;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+footer {
+    background-color: colors.$secondary;
+    flex: 0 0 300px;
+    min-width: 150px;
+
+    .container {
+
+        .data {
+            .logo {
+                img {
+                    width: 100px;
+                }
+            }
+
+            .contact {
+                img{
+                    width: 24px;
+                }
+            }
+        }
+
+        .pages {}
+    }
+}

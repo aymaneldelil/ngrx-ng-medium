@@ -1,0 +1,35 @@
+@use '../../../style/color' as colors;
+@use '../../../style/mixins' as mixins;
+@use '../../../style/variables' as variables;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+header {
+    background-color: colors.$primary;
+
+
+    flex: 0 0 80px;
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    width: 100%;
+    transition: all ease-in-out 0.3s;
+
+    .container {
+        .h-navbar {
+            @include mixins.display-flex();
+            @include mixins.justify-content(space-between);
+
+            .logo {
+                img {
+                    width: calc(variables.$size *10);
+                }
+            }
+        }
+    }
+}
+
+.changeOnScroll {
+    position: fixed;
+    top: -70px;
+    width: 100%;
+}

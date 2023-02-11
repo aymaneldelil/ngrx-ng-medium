@@ -1,0 +1,40 @@
+<section class="signup">
+    <div class="container">
+        <div class="signup-box">
+            <div class="img">
+
+
+            </div>
+            <div class="data">
+
+                <div class="form">
+                    <form [formGroup]="signUp_fg">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your user name</mat-label>
+                            <input matInput placeholder="John smith" formControlName="userName_fc">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- --------------------- -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="userEmail_fc">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- --------------------- -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput type="password" placeholder="pat@example.com" formControlName="userPass_fc">
+                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                        <!-- --------------------- -->
+                        <!-- <mat-form-field appearance="outline">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="userName_fc">
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                        </mat-form-field> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,1 +1,31 @@
-<p>h-nav-bar works!</p>
+<header  [class.changeOnScroll]="isVisible">
+    <div class="container">
+     <div class="h-navbar">
+        <div class="logo" routerLink="/">
+            <img src="./assets/svg/svg-logo.svg" alt="wedium logo">
+        </div>
+        <!-- -------- -->
+        <div class="navbar-feature">
+
+
+
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="login register">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu  #menu="matMenu">
+                <button  mat-menu-item routerLink="/auth/signin">
+                    <mat-icon>login</mat-icon>
+                    <span>Login</span>
+                </button>
+                <!-- ------------ -->
+                <button mat-menu-item  routerLink="auth/signup">
+                    <mat-icon ></mat-icon>
+                    <span>Register</span>
+                </button>
+            </mat-menu>
+
+        </div>
+     </div>
+    </div>
+</header>

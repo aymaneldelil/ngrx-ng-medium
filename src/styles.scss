@@ -1,4 +1,6 @@
 
+@use './app/style/media-query' as mq;
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -20,13 +22,10 @@ $ngrx-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$ngrx-theme: mat.define-light-theme((
-  color: (
-    primary: $ngrx-primary,
-    accent: $ngrx-accent,
-    warn: $ngrx-warn,
-  )
-));
+$ngrx-theme: mat.define-light-theme((color: (primary: $ngrx-primary,
+        accent: $ngrx-accent,
+        warn: $ngrx-warn,
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,5 +34,34 @@ $ngrx-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+
+  @include mq.breakpoints(small) {
+    width: 750px;
+  }
+
+  @include mq.breakpoints(medium) {
+    width: 970px;
+  }
+
+  @include mq.breakpoints(large) {
+    width: 1170px;
+  }
+
+}
