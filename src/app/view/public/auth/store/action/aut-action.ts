@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { ICurrentUser } from '../../interface/i-current-user';
 import { IRegisterReq } from '../../interface/i-register-req';
 
 enum ActionTypes {
@@ -12,3 +13,12 @@ export const registerAction = createAction(
   ActionTypes.REGISTER,
   props<{req:IRegisterReq}>()
 );
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+export const registerSuccessAction = createAction(
+  ActionTypes.REGISTER_SUCCESS,
+  props<{currUser:ICurrentUser}>()
+);
+//---------------------------------------------------------------------------------------------------------------------------------------------
+export const registerFaliureAction = createAction(
+  ActionTypes.REGISTER_FAILURE);
