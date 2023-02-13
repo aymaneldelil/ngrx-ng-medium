@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducer/auth-reducer';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -20,7 +21,8 @@ import { reducers } from './store/reducer/auth-reducer';
     AuthRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    StoreModule.forFeature('auth',reducers)
+    StoreModule.forFeature('auth', reducers),
   ],
+  providers: [AuthService],
 })
 export class AuthModule {}
