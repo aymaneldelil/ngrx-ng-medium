@@ -15,7 +15,10 @@ import { isSubmittingSelector } from '../store/selector/aut-selector';
 export class SignupComponent implements OnInit {
   public signUp_fg!: FormGroup;
   public isSubmitted$: Observable<boolean> = new Observable();
-  constructor(private _fb: FormBuilder, private _store: Store) {}
+  constructor(
+    private _fb: FormBuilder,
+    private _store: Store,
+  ) {}
   //-------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.signupForm();
@@ -37,7 +40,8 @@ export class SignupComponent implements OnInit {
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------
   formSubmit() {
-    console.log(this.signUp_fg);
+    console.log(this.signUp_fg.value);
+    
     this._store.dispatch(registerAction(this.signUp_fg.value));
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------

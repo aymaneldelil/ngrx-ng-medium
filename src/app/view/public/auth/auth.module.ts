@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducer/auth-reducer';
 import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -22,6 +23,7 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     SharedModule,
     StoreModule.forFeature('auth', reducers),
+    HttpClientModule,
   ],
   providers: [AuthService],
 })
