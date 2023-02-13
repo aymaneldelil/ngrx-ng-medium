@@ -7,6 +7,8 @@ import { AngularMaterialModule } from 'src/app/feature/angular-material/angular-
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducer/auth-reducer';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -18,6 +20,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AuthRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    StoreModule.forFeature('auth',reducers)
   ],
 })
 export class AuthModule {}

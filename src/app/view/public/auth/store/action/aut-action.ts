@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { IRegisterReq } from '../../interface/i-register-req';
 
 enum ActionTypes {
   REGISTER = '[Auth] Regester',
@@ -10,5 +11,5 @@ enum ActionTypes {
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerAction = createAction(
   ActionTypes.REGISTER,
-  props<{ userName: String; userEmail: String; userPass: String }>()
+  props<{req:IRegisterReq}>()
 );

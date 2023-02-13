@@ -1,6 +1,6 @@
-@use '../../../style/color' as colors;
-@use '../../../style/variables' as variables;
-@use '../../../style/mixins' as mixins;
+@use '../../../../style/color' as colors;
+@use '../../../../style/variables' as variables;
+@use '../../../../style/mixins' as mixins;
 
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
@@ -21,7 +21,6 @@
     background-color:  darken(colors.$primary, 40);
     color: colors.$primary; 
 }
-
 .danger {
 
     background-color: colors.$danger;

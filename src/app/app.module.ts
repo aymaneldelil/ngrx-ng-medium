@@ -22,7 +22,7 @@ import { FooterModule } from './feature/footer/footer.module';
     HNavbarModule,
     FooterModule,
     CoreModule,
-    StoreModule.forRoot([]),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, 
       logOnly: !isDevMode(), // Restrict extension to log-only mode
