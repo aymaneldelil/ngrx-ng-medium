@@ -17,7 +17,7 @@ export const registerAction = createAction(
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerSuccessAction = createAction(
   ActionTypes.REGISTER_SUCCESS,
-  props<{currUser:ICurrentUser}>()
+  props<{currentUser:ICurrentUser}>()
 );
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerFaliureAction = createAction(

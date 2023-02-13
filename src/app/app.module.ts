@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store'
 import { CoreModule } from './core/core.module';
 import { HNavbarModule } from './feature/h-navbar/h-navbar.module';
 import { FooterModule } from './feature/footer/footer.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FooterModule } from './feature/footer/footer.module';
       // trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
       // traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
+    EffectsModule.forRoot([]),
 
 
   ],
