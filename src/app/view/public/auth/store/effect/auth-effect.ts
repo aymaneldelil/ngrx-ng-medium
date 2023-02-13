@@ -13,13 +13,16 @@ import {
 export class RegisterEffect {
   register$ = createEffect(() => {
     return this.actions$.pipe(
+      /* */
       ofType(registerAction),
       switchMap(({ req }) =>
         this._authSVC.userRegister(req).pipe(
           map((currentUser: ICurrentUser) => {
             return registerSuccessAction({ currentUser });
           }),
+          // call action Failure
           catchError(() => {
+            /* use OF , bec we need to return Obs, and we dont use any thing in pipe*/
             return of(registerFaliureAction);
           })
         )

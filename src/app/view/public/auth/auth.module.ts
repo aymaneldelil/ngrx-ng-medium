@@ -11,6 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducer/auth-reducer';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { RegisterEffect } from './store/effect/auth-effect';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     StoreModule.forFeature('auth', reducers),
     HttpClientModule,
+    EffectsModule.forFeature([RegisterEffect])
   ],
   providers: [AuthService],
 })
