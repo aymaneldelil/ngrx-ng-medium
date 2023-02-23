@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { ICurrentUser } from '../../interface/i-current-user';
 import { IRegisterReq } from '../../interface/i-register-req';
+import { Ibackenderror } from '../../interface/ibackenderror';
 
 enum ActionTypes {
   REGISTER = '[Auth] Regester',
@@ -8,17 +9,29 @@ enum ActionTypes {
   REGISTER_FAILURE = '[Auth] Regester faliure',
   LOGIN = '[Auth] Login',
 }
+
+/**
+ * امته بستخدم ال
+ * Props
+ * مع ال
+ * Action 
+ * -------------------------------
+ * لو انا مستني داتا راجعة 
+ * =================================================================
+ */
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerAction = createAction(
   ActionTypes.REGISTER,
-  props<{req:IRegisterReq}>()
+  props<{ req: IRegisterReq }>()
 );
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerSuccessAction = createAction(
   ActionTypes.REGISTER_SUCCESS,
-  props<{currentUser:ICurrentUser}>()
+  props<{ currentUser: ICurrentUser }>()
 );
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerFaliureAction = createAction(
-  ActionTypes.REGISTER_FAILURE);
+  ActionTypes.REGISTER_FAILURE,
+  props<{ eerrors: Ibackenderror }>()
+);
