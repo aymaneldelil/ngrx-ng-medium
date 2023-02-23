@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
+import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
 import { ICurrentUser } from '../../interface/i-current-user';
 import { AuthService } from '../../services/auth.service';
 import {
@@ -17,13 +17,16 @@ export class RegisterEffect {
       ofType(registerAction),
       switchMap(({ req }) =>
         this._authSVC.userRegister(req).pipe(
+          tap(() => {
+            console.log('IAM IN EFFECT');
+          }),
           map((currentUser: ICurrentUser) => {
             return registerSuccessAction({ currentUser });
           }),
           // call action Failure
           catchError(() => {
             /* use OF , bec we need to return Obs, and we dont use any thing in pipe*/
-            return of(registerFaliureAction);
+            return of(registerFaliureAction());
           })
         )
       )

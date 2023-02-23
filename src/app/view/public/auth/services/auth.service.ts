@@ -10,13 +10,14 @@ import { ICurrentUser } from '../interface/i-current-user';
 export class AuthService {
   constructor(private _http: HttpClient) {}
   //-----------------------------------------------------------------------------------------------------------------------------------------------
-
-
   public userRegister(data: IRegisterReq): Observable<ICurrentUser> {
     const url: string = environment.apiUrl + '/users';
-    return this._http.post<IRegisterRes>(url, data).pipe(map((m) => m.user),
-    tap(t=>{
-      console.log(t)
-    }));
+    return this._http.post<IRegisterRes>(url, data).pipe(
+      map((m) => m.user),
+      tap((t) => {
+        console.log("In Tab")
+        console.log(t);
+      })
+    );
   }
 }

@@ -20,29 +20,29 @@
                     <form [formGroup]="signUp_fg">
                         <mat-form-field appearance="outline">
                             <mat-label> User Name</mat-label>
-                            <input matInput placeholder="John Smith" formControlName="userName_fc">
+                            <input matInput placeholder="John Smith" formControlName="username">
                             <mat-error *ngIf="signUp_fg.get('userName_fc')?.hasError('required')">This Field Is Required</mat-error>
                             <mat-error *ngIf="signUp_fg.get('userName_fc')?.hasError('minlength')">User Name must be more than 6 character</mat-error>
                         </mat-form-field>
                         <!-- --------------------- -->
                         <mat-form-field appearance="outline">
                             <mat-label>Enter your email</mat-label>
-                            <input matInput placeholder="pat@example.com" #email formControlName="userEmail_fc">
+                            <input matInput placeholder="pat@example.com" #email formControlName="email">
                             <mat-error *ngIf="signUp_fg.get('userEmail_fc')?.hasError('required')">This Field Is Required</mat-error>
                             <mat-error *ngIf="signUp_fg.get('userEmail_fc')?.hasError('pattern')">Please Enter Valid Email Format</mat-error>
                         </mat-form-field>
                         <!-- --------------------- -->
                         <mat-form-field appearance="outline">
                             <mat-label>Enter your password</mat-label>
-                            <input matInput type="password" placeholder="34234234" formControlName="userPass_fc">
+                            <input matInput type="password" placeholder="34234234" formControlName="password">
                             <mat-error *ngIf="signUp_fg.get('userEmail_fc')?.hasError('required')">This Field Is Required</mat-error>
                         </mat-form-field>
                         <!-- --------------------- -->
                         <!-- <button ty></button> -->
-                        <app-button type="submit" text="Sign Up" color="lite" (btnClick)="formSubmit()"  [isDisabled]='!signUp_fg.valid'></app-button>
+                        <app-button type="submit" text="Sign Up" color="lite" (btnClick)="formSubmit()" [isDisabled]='!signUp_fg.valid'  ></app-button>
                     </form>
 
-                </div>
+                </div>.
             </div>
         </div>
     </div>

@@ -17,9 +17,7 @@ export class ButtonPrimaryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick(){
-    console.log("IAM CLICKED");
-    
+  onClick(){    
     this.btnClick.emit()
   }
 }
