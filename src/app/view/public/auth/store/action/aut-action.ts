@@ -33,5 +33,5 @@ export const registerSuccessAction = createAction(
 //---------------------------------------------------------------------------------------------------------------------------------------------
 export const registerFaliureAction = createAction(
   ActionTypes.REGISTER_FAILURE,
-  props<{ eerrors: Ibackenderror }>()
+  props<{ errors: Ibackenderror }>()
 );

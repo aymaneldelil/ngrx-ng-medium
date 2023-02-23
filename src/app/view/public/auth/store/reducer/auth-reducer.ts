@@ -1,9 +1,19 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { registerAction } from '../action/aut-action';
+import {
+  registerAction,
+  registerFaliureAction,
+  registerSuccessAction,
+} from '../action/aut-action';
 import { iAuthState, initialState } from '../state/auth-state';
+import { ICurrentUser } from 'src/app/view/public/auth/interface/i-current-user';
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
-
+/*
+لية  ضفت  ال
+Action  with state 
+علشان عاوز امسك ال props
+ الي راجعة
+*/
 //---------------------------------------------------------------------------------------------------------------------------------------------
 const authReducer = createReducer(
   initialState,
@@ -11,6 +21,23 @@ const authReducer = createReducer(
     return {
       ...state,
       isSubmitting: true,
+      validationErrors: null,
+    };
+  }),
+  on(registerSuccessAction, (state, action): iAuthState => {
+    return {
+      ...state,
+      isLoggedIn: true,
+      isSubmitting: false,
+      currentUser: action.currentUser,
+    };
+  }),
+  on(registerFaliureAction, (state, action): iAuthState => {
+    return {
+      ...state,
+      isLoggedIn: false,
+      isSubmitting: false,
+      validationErrors: action.errors,
     };
   })
 );

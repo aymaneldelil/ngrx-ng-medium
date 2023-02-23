@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
@@ -24,9 +25,9 @@ export class RegisterEffect {
             return registerSuccessAction({ currentUser });
           }),
           // call action Failure
-          catchError(() => {
+          catchError((err:HttpErrorResponse) => {
             /* use OF , bec we need to return Obs, and we dont use any thing in pipe*/
-            return of(registerFaliureAction());
+            return of(registerFaliureAction({errors:err.error}));
           })
         )
       )
