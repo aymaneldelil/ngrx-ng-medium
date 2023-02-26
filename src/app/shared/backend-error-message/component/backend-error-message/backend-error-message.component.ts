@@ -28,6 +28,5 @@ export class BackendErrorMessageComponent implements OnInit {
       .subscribe();
   }
   //---------------------------------------------------------------------------------------------------------------------------------------------
-
   initialValues() {}
 }
