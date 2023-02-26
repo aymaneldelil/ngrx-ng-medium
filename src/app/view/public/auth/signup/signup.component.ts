@@ -1,11 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { IRegisterReq } from '../interface/i-register-req';
+import { Ibackenderror } from '../interface/ibackenderror';
 import { AuthService } from '../services/auth.service';
 import { registerAction } from '../store/action/aut-action';
-import { isSubmittingSelector } from '../store/selector/aut-selector';
+import { isSubmittingSelector, validationErrorsSelector } from '../store/selector/aut-selector';
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -17,6 +19,7 @@ import { isSubmittingSelector } from '../store/selector/aut-selector';
 export class SignupComponent implements OnInit {
   public signUp_fg!: FormGroup;
   public isSubmitted$: Observable<boolean> = new Observable();
+  public validationError$:Observable<Ibackenderror | null> = new Observable();
   constructor(private _fb: FormBuilder, private _store: Store , private _authSVC:AuthService) {}
   //-------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit(): void {
@@ -44,6 +47,7 @@ export class SignupComponent implements OnInit {
     };
     this._store.dispatch(registerAction({ req }));
     // this._authSVC.userRegister(req).subscribe()
+    this.validationError$ = this._store.pipe(select(validationErrorsSelector))
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------
   private intializeValues(): void {
