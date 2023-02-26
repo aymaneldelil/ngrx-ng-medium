@@ -1,5 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
   registerAction,
   registerFaliureAction,
   registerSuccessAction,
@@ -39,6 +42,25 @@ const authReducer = createReducer(
       isSubmitting: false,
       validationErrors: action.errors,
     };
+  }),
+  on(loginAction, (state): iAuthState => {
+    return {
+      ...state,
+      isLoggedIn: true,
+    };
+  }),
+  on(loginSuccessAction, (state, action): iAuthState => {
+    return {
+      ...state,
+      isLoggedIn: true,
+      currentUser: action.currentUser,
+    };
+  }),
+  on(loginFailureAction ,(state)=>{
+    return {
+      ...state ,
+      isLoggedIn:false
+    }
   })
 );
 //---------------------------------------------------------------------------------------------------------------------------------------------
