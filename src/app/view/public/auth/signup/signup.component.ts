@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
           Validators.pattern(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
         ],
       ],
-      password: [null, Validators.required],
+      password: [null],
     });
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------
