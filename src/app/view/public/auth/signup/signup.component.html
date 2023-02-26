@@ -17,6 +17,7 @@
             <div class="data">
                 <h3>Sign Up</h3>
                 <div class="signup-form">
+                    <backend-error-message *ngIf="validationError$ | async" [backendErrorProps]="validationError$ | async"></backend-error-message>
                     <form [formGroup]="signUp_fg">
                         <mat-form-field appearance="outline">
                             <mat-label> User Name</mat-label>
