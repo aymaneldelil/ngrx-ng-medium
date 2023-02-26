@@ -1,0 +1,38 @@
+@use '../../../../style/color' as colors;
+@use '../../../../style/variables' as variables;
+@use '../../../../style/mixins' as mixins;
+@use '../../../../style/media-query' as mq;
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+.signin {
+    .container {
+
+        //---------------
+        .signin-box {
+            // @include mixins.display-flex();
+            display: flex;
+            @include mixins.flex-wrap(wrap);
+            gap: 50px;
+            //---------------
+            .img {
+                flex: 1 1 ;
+                background-color: colors.$primary
+                img{
+                    width: 250px
+                }
+            }
+            //---------------
+            .data {
+                flex: 1 1 ;
+
+                .signin-form {
+                    form {
+                        @include mixins.display-flex();
+                        @include mixins.flex-direction(column);
+                    }
+                }
+            }
+        }
+    }
+}

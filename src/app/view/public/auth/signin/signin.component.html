@@ -1,1 +1,48 @@
-<p>signin works!</p>
+<section class="signin">
+    <div class="container">
+        <div class="signin-box">
+            <div class="img">
+                <img src="./assets/svg/svg-logo.svg" alt="" srcset="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate dicta, ipsam illum quaerat
+                    aspernatur sunt tenetur aut vero doloribus sequi delectus atque maiores asperiores cum culpa
+                    explicabo laborum rem dignissimos inventore. Delectus nobis recusandae tenetur unde, doloribus
+                    voluptate eum atque temporibus nam ad, magni, quibusdam amet dolores asperiores quae quo id in. Rem
+                    quidem doloremque labore tempora numquam aspernatur at facilis possimus magnam nam sequi ipsam
+                    neque ducimus vero voluptate maiores obcaecati excepturi velit cupiditate recusandae, laboriosam
+                    incidunt! Beatae non odio inventore error laudantium amet hic corrupti consequatur rem maiores
+                    molestiae nemo iure officia, eligendi adipisci, voluptatem assumenda necessitatibus numquam
+                    repudiandae iusto. Iure sint fugit qui repellat ullam dignissimos, nulla labore repellendus
+                    officiis, enim inventore iusto perspiciatis cumque! Dolor, architecto quas.</p>
+            </div>
+            <div class="data">
+                <h3>Sign in</h3>
+                <div class="signin-form">
+                    <!-- <backend-error-message *ngIf="validationError$ | async" [backendError]="validationError$ | async"></backend-error-message> -->
+                    <form [formGroup]="signin_fg">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email Address</mat-label>
+                            <input matInput placeholder="JohnSmith@john.com" formControlName="email">
+                            <mat-error *ngIf="signin_fg.get('email')?.hasError('required')">This Field Is
+                                Required</mat-error>
+                            <mat-error *ngIf="signin_fg.get('passowrd')?.hasError('pattern')">Please Enter Valid Email
+                                Format</mat-error>
+                        </mat-form-field>
+                        <!-- --------------------- -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password">
+                            <mat-error *ngIf="signin_fg.get('password')?.hasError('required')">This Field Is
+                                Required</mat-error>
+                        </mat-form-field>
+                        <!-- --------------------- -->
+
+                        <!-- --------------------- -->
+                        <app-button type="submit" text="Sign Up" color="lite" (btnClick)="formSubmit()"
+                            [isDisabled]='!signin_fg.valid'></app-button>
+                    </form>
+
+                </div>.
+            </div>
+        </div>
+    </div>
+</section>
