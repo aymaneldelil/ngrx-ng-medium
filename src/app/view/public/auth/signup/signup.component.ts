@@ -46,7 +46,6 @@ export class SignupComponent implements OnInit {
       user: this.signUp_fg.value,
     };
     this._store.dispatch(registerAction({ req }));
-    // this._authSVC.userRegister(req).subscribe()
     this.validationError$ = this._store.pipe(select(validationErrorsSelector))
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------

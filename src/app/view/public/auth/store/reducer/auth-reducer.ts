@@ -56,10 +56,11 @@ const authReducer = createReducer(
       currentUser: action.currentUser,
     };
   }),
-  on(loginFailureAction ,(state)=>{
+  on(loginFailureAction ,(state , action)=>{
     return {
       ...state ,
-      isLoggedIn:false
+      isLoggedIn:false,
+      validationErrors: action.errors
     }
   })
 );

@@ -7,6 +7,9 @@ import { StorageService } from 'src/app/core/service/storage.service';
 import { ICurrentUser } from '../../interface/i-current-user';
 import { AuthService } from '../../services/auth.service';
 import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
   registerAction,
   registerFaliureAction,
   registerSuccessAction,
@@ -47,7 +50,26 @@ export class RegisterEffect {
     },
     { dispatch: false }
   );
-
+  //-------------------------------------------------------
+  login$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loginAction),
+      switchMap(({ req }) =>
+        this._authSVC.userLogin(req).pipe(
+          tap(() => {
+            console.log('IAM IN LOGIN EFFECT');
+          }),
+          map((currentUser: ICurrentUser) => {
+            return loginSuccessAction({ currentUser });
+          }),
+          catchError((err: HttpErrorResponse) => {
+            console.log("in catch error , may be the re is the error");
+            return of(loginFailureAction({ errors: err.error }));
+          })
+        )
+      )
+    );
+  });
   constructor(
     private actions$: Actions,
     private _authSVC: AuthService,

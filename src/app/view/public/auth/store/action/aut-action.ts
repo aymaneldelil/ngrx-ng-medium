@@ -48,4 +48,7 @@ export const loginSuccessAction = createAction(
   props<{ currentUser: ICurrentUser }>()
 );
 //---------------------------------------------------------------------------------------------------------------------------------------------
-export const loginFailureAction = createAction(ActionTypes.LOGIN_FAILURE);
+export const loginFailureAction = createAction(
+  ActionTypes.LOGIN_FAILURE,
+  props<{ errors: Ibackenderror }>()
+);

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ILoginReq } from '../interface/i-login-req';
+import { Ibackenderror } from '../interface/ibackenderror';
+import { loginAction } from '../store/action/aut-action';
+import { validationErrorsSelector } from '../store/selector/aut-selector';
 
 @Component({
   selector: 'app-signin',
@@ -8,9 +14,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
   public signin_fg!: FormGroup;
-  constructor(private _fb: FormBuilder) {}
+  public validationError$:Observable<Ibackenderror | null> = new Observable();
+  constructor(private _fb: FormBuilder, private _store: Store) {}
   //---------------------------------------------------------------------------------------------------------------------------------------------
-
   ngOnInit(): void {
     this.signinForm();
   }
@@ -19,12 +25,20 @@ export class SigninComponent implements OnInit {
     this.signin_fg = this._fb.group({
       email: [
         null,
-        Validators.required,
-        Validators.pattern(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        [
+          Validators.required,
+          Validators.pattern(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        ],
       ],
-      password: [null, Validators.required],
+      password: [null, [Validators.required]],
     });
   }
   //---------------------------------------------------------------------------------------------------------------------------------------------
-  public formSubmit() {}
+  public formSubmit() {
+    const req: ILoginReq = {
+      user: this.signin_fg.value,
+    };
+    this._store.dispatch(loginAction({ req }));
+    this.validationError$ = this._store.pipe(select(validationErrorsSelector))
+  }
 }

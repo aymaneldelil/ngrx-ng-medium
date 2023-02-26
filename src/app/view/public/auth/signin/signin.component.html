@@ -17,14 +17,14 @@
             <div class="data">
                 <h3>Sign in</h3>
                 <div class="signin-form">
-                    <!-- <backend-error-message *ngIf="validationError$ | async" [backendError]="validationError$ | async"></backend-error-message> -->
+                    <backend-error-message *ngIf="validationError$ | async" [backendError]="validationError$ | async"></backend-error-message>
                     <form [formGroup]="signin_fg">
                         <mat-form-field appearance="outline">
                             <mat-label>Email Address</mat-label>
                             <input matInput placeholder="JohnSmith@john.com" formControlName="email">
                             <mat-error *ngIf="signin_fg.get('email')?.hasError('required')">This Field Is
                                 Required</mat-error>
-                            <mat-error *ngIf="signin_fg.get('passowrd')?.hasError('pattern')">Please Enter Valid Email
+                            <mat-error *ngIf="signin_fg.get('email')?.hasError('pattern')">Please Enter Valid Email
                                 Format</mat-error>
                         </mat-form-field>
                         <!-- --------------------- -->
