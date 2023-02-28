@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit {
   public signin_fg!: FormGroup;
   public validationError$:Observable<Ibackenderror | null> = new Observable();
   constructor(private _fb: FormBuilder, private _store: Store) {}
+  @ViewChild('sq') square!:HTMLButtonElement ; 
   //---------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.signinForm();

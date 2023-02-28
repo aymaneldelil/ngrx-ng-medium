@@ -16,7 +16,7 @@ import {
 } from '../action/aut-action';
 
 @Injectable()
-export class RegisterEffect {
+export class AuthEffect {
   register$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(registerAction),

@@ -22,6 +22,7 @@ header {
             .logo {
                 img {
                     width: calc(variables.$size *10);
+                    cursor: pointer;
                 }
             }
         }

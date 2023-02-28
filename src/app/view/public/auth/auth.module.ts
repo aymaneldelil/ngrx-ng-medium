@@ -11,7 +11,7 @@ import { reducers } from './store/reducer/auth-reducer';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { RegisterEffect } from './store/effect/auth-effect';
+import { AuthEffect } from './store/effect/auth-effect';
 import { PrimarybtnModule } from 'src/app/shared/primarybtn/primarybtn.module';
 import { BackendErrorMessageModule } from 'src/app/shared/backend-error-message/backend-error-message.module';
 @NgModule({
@@ -27,7 +27,7 @@ import { BackendErrorMessageModule } from 'src/app/shared/backend-error-message/
     BackendErrorMessageModule,
     StoreModule.forFeature('auth', reducers),
     HttpClientModule,
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([AuthEffect]),
   ],
   providers: [AuthService],
 })

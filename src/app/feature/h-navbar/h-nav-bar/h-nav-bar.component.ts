@@ -12,6 +12,7 @@ import {
   fromEvent,
   map,
   pairwise,
+  single,
   throttleTime,
 } from 'rxjs';
 
@@ -42,6 +43,7 @@ export class HNavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollable_navBar();
+   
   }
 
   private scrollable_navBar = () => {
