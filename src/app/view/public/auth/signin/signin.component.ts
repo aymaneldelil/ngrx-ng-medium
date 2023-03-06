@@ -4,8 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ILoginReq } from '../interface/i-login-req';
 import { Ibackenderror } from '../interface/ibackenderror';
-import { loginAction } from '../store/action/aut-action';
-import { validationErrorsSelector } from '../store/selector/aut-selector';
+import { validationErrorsSelector } from '../../../../core/store/auth/aut-selector';
+import { loginAction } from 'src/app/core/store/auth/aut-action';
 
 @Component({
   selector: 'app-signin',

@@ -1,5 +1,5 @@
 import { ICurrentUser } from 'src/app/view/public/auth/interface/i-current-user';
-import { Ibackenderror } from '../../interface/ibackenderror';
+import { Ibackenderror } from '../../../view/public/auth/interface/ibackenderror';
 
 export interface iAuthState {
   isSubmitting: boolean;
@@ -8,7 +8,7 @@ export interface iAuthState {
   validationErrors: Ibackenderror | null;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------
-export const initialState: iAuthState = {
+export const authState: iAuthState = {
   isSubmitting: false,
   currentUser: null,
   isLoggedIn: null,

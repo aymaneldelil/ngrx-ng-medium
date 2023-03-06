@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
 import { StorageService } from 'src/app/core/service/storage.service';
-import { ICurrentUser } from '../../interface/i-current-user';
-import { AuthService } from '../../services/auth.service';
+import { ICurrentUser } from '../../../view/public/auth/interface/i-current-user';
+import { AuthService } from '../../../view/public/auth/services/auth.service';
 import {
   loginAction,
   loginFailureAction,
@@ -13,7 +13,7 @@ import {
   registerAction,
   registerFaliureAction,
   registerSuccessAction,
-} from '../action/aut-action';
+} from './aut-action';
 
 @Injectable()
 export class AuthEffect {

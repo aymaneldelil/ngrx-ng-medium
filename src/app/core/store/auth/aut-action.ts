@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { ICurrentUser } from '../../interface/i-current-user';
-import { ILoginReq } from '../../interface/i-login-req';
-import { IRegisterReq } from '../../interface/i-register-req';
-import { Ibackenderror } from '../../interface/ibackenderror';
+import { ICurrentUser } from 'src/app/view/public/auth/interface/i-current-user';
+import { ILoginReq } from 'src/app/view/public/auth/interface/i-login-req';
+import { IRegisterReq } from 'src/app/view/public/auth/interface/i-register-req';
+import { Ibackenderror } from 'src/app/view/public/auth/interface/ibackenderror';
 
 enum ActionTypes {
   REGISTER = '[Auth] Regester',

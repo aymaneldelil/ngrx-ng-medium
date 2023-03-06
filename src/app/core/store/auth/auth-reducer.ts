@@ -6,9 +6,8 @@ import {
   registerAction,
   registerFaliureAction,
   registerSuccessAction,
-} from '../action/aut-action';
-import { iAuthState, initialState } from '../state/auth-state';
-import { ICurrentUser } from 'src/app/view/public/auth/interface/i-current-user';
+} from './aut-action';
+import { authState, iAuthState } from './auth-state';
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 /*
@@ -19,7 +18,7 @@ Action  with state
 */
 //---------------------------------------------------------------------------------------------------------------------------------------------
 const authReducer = createReducer(
-  initialState,
+  authState,
   on(registerAction, (state): iAuthState => {
     return {
       ...state,
@@ -56,15 +55,15 @@ const authReducer = createReducer(
       currentUser: action.currentUser,
     };
   }),
-  on(loginFailureAction ,(state , action)=>{
+  on(loginFailureAction, (state, action) => {
     return {
-      ...state ,
-      isLoggedIn:false,
-      validationErrors: action.errors
-    }
+      ...state,
+      isLoggedIn: false,
+      validationErrors: action.errors,
+    };
   })
 );
 //---------------------------------------------------------------------------------------------------------------------------------------------
-export function reducers(state: iAuthState, action: Action) {
+export function auth_Reducer(state: iAuthState, action: Action) {
   return authReducer(state, action);
 }

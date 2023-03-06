@@ -21,7 +21,6 @@ import { EffectsModule } from '@ngrx/effects';
     HNavbarModule,
     FooterModule,
     CoreModule,
-    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

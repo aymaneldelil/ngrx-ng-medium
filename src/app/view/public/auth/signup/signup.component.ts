@@ -6,8 +6,8 @@ import { Observable, Subject } from 'rxjs';
 import { IRegisterReq } from '../interface/i-register-req';
 import { Ibackenderror } from '../interface/ibackenderror';
 import { AuthService } from '../services/auth.service';
-import { registerAction } from '../store/action/aut-action';
-import { isSubmittingSelector, validationErrorsSelector } from '../store/selector/aut-selector';
+import { isSubmittingSelector, validationErrorsSelector } from '../../../../core/store/auth/aut-selector';
+import { registerAction } from 'src/app/core/store/auth/aut-action';
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
